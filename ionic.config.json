@@ -1,0 +1,7 @@
+{
+  "name": "pop-over",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

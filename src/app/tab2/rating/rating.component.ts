@@ -7,8 +7,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 })
 export class RatingComponent implements OnInit {
 	@Input() rating: number;
+	@Input() message: string;
+	@Input() note: string;
 
-	@Output() ratingChange: EventEmitter<number> = new EventEmitter();
+	@Output() ratingChange: EventEmitter<number> = new EventEmitter<number>();
+	@Output() noteChange: EventEmitter<string> = new EventEmitter<string>();
+	@Output() messageChange: EventEmitter<string> = new EventEmitter<string>();
 
 	constructor() {}
 
@@ -39,26 +43,35 @@ export class RatingComponent implements OnInit {
       */
 
 		if (this.isAboveRating(index)) {
-			return COlLORS.GREY;
+			return COLORS.GREY;
 		}
 		switch (this.rating) {
 			case 1:
-				return COlLORS.RED;
+				return COLORS.RED;
 			case 2:
-				return COlLORS.ORANGE;
+				return COLORS.ORANGE;
 			case 3:
-				return COlLORS.YELLOW;
+				return COLORS.YELLOW;
 			case 4:
-				return COlLORS.GREEN;
+				return COLORS.GREEN;
 			case 5:
-				return COlLORS.BLUE;
+				return COLORS.BLUE;
 			default:
-				return COlLORS.GREY;
+				return COLORS.GREY;
 		}
 	}
+	onMessageChange(ev) {
+    this.messageChange.emit(ev);
+		// this.noteChange.emit(ev);
+
+	}
+	// onNoteChange(ev) {
+	// 	this.noteChange.emit(ev);
+  //   // this.messageChange.emit(ev);
+	// }
 }
 
-enum COlLORS {
+enum COLORS {
 	GREY = "#E0E0E0",
 	GREEN = "#76FF03",
 	YELLOW = "#FFCA28",

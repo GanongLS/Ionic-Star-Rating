@@ -1,1 +1,5 @@
-<app-rating [(rating)] = "ratingValue"></app-rating>
+<p>{{ ratingValue }}</p>
+<p>parent message: {{ messageValue }}</p>
+<p>parent note: {{ noteValue }}</p>
+
+<app-rating [(rating)]="ratingValue" [(message)]="messageValue" [(note)]="noteValue"></app-rating>
